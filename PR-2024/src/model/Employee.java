@@ -1,18 +1,21 @@
 package model;
-//todo поменять age на дату рождения и sallary убрать
+import java.time.LocalDate;
+//todo добавить Login и ID базы данных
 public class Employee {
     private String firstName;
     private String lastName;
-    private int age;
+    private LocalDate dateOfBirth;
     private String position;
-    private double salary;
+    private String login;
+    private int databaseId;
 
-    public Employee(String firstName, String lastName, int age, String position, double salary) {
+    public Employee(String firstName, String lastName, LocalDate dateOfBirth, String position, String login, int databaseId) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.age = age;
+        this.dateOfBirth = dateOfBirth;
         this.position = position;
-        this.salary = salary;
+        this.login = login;
+        this.databaseId = databaseId;
     }
 
     // Методы для установки и получения значений полей
@@ -32,12 +35,12 @@ public class Employee {
         return lastName;
     }
 
-    public void setAge(int age) {
-        this.age = age;
+    public void setDateOfBirth(LocalDate dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
     }
 
-    public int getAge() {
-        return age;
+    public LocalDate getDateOfBirth() {
+        return dateOfBirth;
     }
 
     public void setPosition(String position) {
@@ -48,17 +51,26 @@ public class Employee {
         return position;
     }
 
-    public void setSalary(double salary) {
-        this.salary = salary;
+    public void setLogin(String login) {
+        this.login = login;
     }
 
-    public double getSalary() {
-        return salary;
+    public String getLogin() {
+        return login;
+    }
+
+    public void setDatabaseId(int databaseId) {
+        this.databaseId = databaseId;
+    }
+
+    public int getDatabaseId() {
+        return databaseId;
     }
 
     public static void main(String[] args) {
-        Employee employee = new Employee("Евгений", "Громов", 24, "Менеджер", 5000.0);
-        System.out.println(employee.getFirstName());  // Выводит "John"
+        Employee employee = new Employee("Евгений", "Громов", LocalDate.of(2005, 9, 22), "Менеджер", "egromov", 1001);
+        System.out.println(employee.getFirstName());  // Выводит "Евгений"
+        System.out.println(employee.getLogin());  // Выводит "egromov"
+        System.out.println(employee.getDatabaseId());  // Выводит 1001
     }
 }
-
